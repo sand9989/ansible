@@ -1,0 +1,17 @@
+---
+ - name: enter variables and display
+   hosts: all
+   gather_facts: false
+   vars: 
+    x: 45
+    name: sandeep
+   vars_prompt:
+    - name: user_name
+      prompt: Enter your username
+      private: no
+    - name: password
+      prompt: enter u r passwors
+      private: yes
+   tasks:
+    - debug:
+       msg: "the username is: {{user_name}},{{x}}"
