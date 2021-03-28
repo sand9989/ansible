@@ -10,5 +10,5 @@
       register: os_name
     - debug:
        msg:
-        - "This os name: {{os_dist}}"
-        - "This os distribution: {{os_name}}"
+        - "This os name: {{os_dist.stdout}}"
+        - "This os distribution: {{os_name.stdout}}"
