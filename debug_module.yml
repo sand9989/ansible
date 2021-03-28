@@ -1,0 +1,9 @@
+---
+ - name: usage of debug command and verbosity
+   hosts: all
+   tasks:
+    - debug:
+       msg:
+        - "this is host: {{inventory_hostname}}"
+       var: inventory_hostname_short
+       verbosity: 2
