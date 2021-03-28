@@ -1,0 +1,7 @@
+#!/usr/bin/ansible-playbook
+ - name: copy the file to remote node
+   hosts: all
+   gather_facts: false
+   tasks:
+    - name: copy the file
+      copy: src=dest.xml dest=dest.xml
