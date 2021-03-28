@@ -3,5 +3,6 @@
    hosts: all
    become: yes
    tasks:
-    - apt: name=tree state=absent
+    - apt: name=tree state=latest
+    - apt: name=vim state=latest
    
