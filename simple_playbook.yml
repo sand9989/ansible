@@ -1,6 +1,7 @@
 ---
  - name: This is just dry run
    hosts: all
+   become: yes
    tasks:
-    - apt: name=tree state=latest
+    - apt: name=tree state=absent
    
