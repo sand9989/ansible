@@ -1,0 +1,6 @@
+---
+ - name: This is just dry run
+   hosts: all
+   tasks:
+    - apt: name=tree state=latest
+   
