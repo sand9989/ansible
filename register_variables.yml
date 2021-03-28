@@ -1,0 +1,14 @@
+---
+ - name: find all OS distribution and name
+   hosts: all
+   tasks: 
+    - name: finding os distribution
+      shell: "cat /etc/*rel* | awk -F = 'NR==1 {print$2}'"
+      register: os_dist
+    - name: finsing os name
+      shell: "uname"
+      register: os_name
+    - debug:
+       msg:
+        - "This os name: {{os_dist}}"
+        - "This os distribution: {{os_name}}"
