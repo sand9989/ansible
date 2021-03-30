@@ -7,9 +7,9 @@
       yum:
        name: httpd
        state: latest
-      when: {{ansible_distribution == "Linux"}}
+      when: ansible_distribution == "Linux"
     - name: Install httpd using apt
       apt:
        name: httpd
        state: latest
-      when: {{ansible_distribution == "Ubuntu"}}
+      when: ansible_distribution == "Ubuntu"
