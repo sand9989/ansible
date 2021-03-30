@@ -1,0 +1,17 @@
+---
+ - name: working with when condition
+   hosts: all
+   gather_facts: false
+   vars:
+    x: 5
+    y: 6
+    z: [5,6,7]
+   tasks:
+    - name: check the condition when true
+      debug:
+       msg: "Display this statement when x==y"
+      when: x==y
+    - name: check this condition when false
+      debug:
+       msg: "Display when x is not equal to y"
+      when: x != y
