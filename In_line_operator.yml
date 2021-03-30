@@ -1,0 +1,13 @@
+---
+ - name: working with inline operators
+   hosts: all
+   gather_facts: false
+   vars:
+    x: 45
+    y: 46
+    larger: "{{x if (x>y) else y}}"
+   tasks:
+    - debug:
+       msg:
+        - "the larger number of {{x}} and {{y}} is: {{larger}}"
+      
