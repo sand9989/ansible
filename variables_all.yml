@@ -1,0 +1,17 @@
+---
+ - name: run variables
+   hosts: all
+   vars:
+    x: 45
+    my_name: "sandeep"
+   gather_facts: True
+   vars_prompt:
+    - name: user_name
+      prompt: Enter your name
+      private: no
+    - name: password
+      prompt: Enter your password
+      private: yes
+   tasks:
+    - debug:
+       msg: "{{user_name}} has {{password}}"
