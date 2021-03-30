@@ -3,7 +3,5 @@
    hosts: all
    tasks:
     - debug:
-       msg:
-        - "this is host: {{inventory_hostname}}"
-       var: inventory_hostname_short
+       var: inventory_hostname
        verbosity: 2

@@ -10,6 +10,6 @@
       when: ansible_distribution == "Linux"
     - name: Install httpd using apt
       apt:
-       name: httpd
+       name: apache2
        state: latest
       when: ansible_distribution == "Ubuntu"
