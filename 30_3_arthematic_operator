@@ -1,0 +1,27 @@
+---
+ - name: arthmetic operators
+   hosts: all
+   gather_facts: false
+   vars:
+    x: 45
+    y: 46
+    z: [43,44,45]
+    my_name: sandeep
+   tasks:
+    - name: addition
+      debug:
+       msg:
+        - "Addition of x and y: {{x+y}}"
+        - "Substraction of x and y: {{x-y}}"
+        - "Divison of x and y: {{x/y}}"
+        - "multiplication of x and y: {{x*y}}"
+        - "{{x}} = {{y}}: {{x == y}}"
+        - "{{x}} not equal to {{y}}: {{x != y}}"
+        - "in command: {{x in z}}"
+        - "not in command: {{x not in z}}"
+        - "defined: {{x is defined}}"
+        - "undefined: {{w is undefined}}"
+        - "my_name: {{my_name is upper}}"
+        - "{{(4>5) and (3>2) and (9==0)}}"
+        - "{{not (4>5)}}"
+        
