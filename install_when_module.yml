@@ -1,0 +1,15 @@
+---
+ - name: install httpd
+   hosts: all
+   gather_facts: True
+   tasks:
+    - name: Install httpd using yum
+      yum:
+       name: httpd
+       state: latest
+      when: {{ansible_distribution == "Linux"}}
+    - name: Install httpd using apt
+      apt:
+       name: httpd
+       state: latest
+      when: {{ansible_distribution == "Ubuntu"}}
