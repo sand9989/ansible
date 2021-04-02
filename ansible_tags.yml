@@ -1,0 +1,28 @@
+---
+ - name: execute 5 plays
+   hosts: all
+   gather_facts: false
+   become: yes
+   tasks:
+    - debug: 
+       msg: "this is first task"
+      tags:
+       - first
+       - common
+       - always
+    - debug: 
+       msg: "this is second task"
+      tags:
+       - second
+       - common
+       - never
+    - debug: 
+       msg: "this is third task"
+      tags:
+       - third
+       - never
+    - debug: 
+       msg: "this is fourth task"
+      tags:
+       - fourth
+       - never

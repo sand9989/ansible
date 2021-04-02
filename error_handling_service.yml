@@ -1,0 +1,16 @@
+---
+ - name: Error handling for services
+   hosts: all
+   gather_facts: false
+   become: yes
+   tasks:
+    - name: start the httpd service
+      service:
+        name: httpd
+        state: started
+      ignore_errors: yes
+    - name: start the ngnix service
+      service:
+        name: ngnix
+        state: started
+        

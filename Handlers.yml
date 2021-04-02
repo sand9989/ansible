@@ -1,0 +1,17 @@
+---
+ - name: Handlers task
+   hosts: all
+   become: yes
+   gather_facts: false
+   tasks:
+    - name: Install httpd
+      apt:
+       name: httpd
+       state: latest
+      notify:
+        - Run httpd service
+   handlers:     
+    - name: Run httpd service
+      service:
+        name: httpd
+        state: started 

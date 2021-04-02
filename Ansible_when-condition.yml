@@ -1,0 +1,16 @@
+---
+ - name: Handlers task
+   hosts: all
+   become: yes
+   gather_facts: false
+   tasks:
+    - name: Install httpd
+      apt:
+       name: httpd
+       state: latest
+      register: out
+    - name: Run httpd service
+      service:
+        name: httpd
+        state: started
+      when: out.changed == True

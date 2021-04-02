@@ -1,0 +1,9 @@
+---
+ - name: fail the playbook
+   hosts: all
+   gather_facts: false
+   tasks:
+   - command: "ls /home"
+     register: out
+     failed_when: out.rc == 0
+   - debug: var=out 

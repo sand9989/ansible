@@ -1,0 +1,15 @@
+---
+ - name: error handling playbook
+   hosts: all
+   gather_facts: false
+   become: yes
+   tasks:
+   - name: running command
+     command: "ls /homee"
+     register: out
+     ignore_errors: yes
+   - name: ignoring this task if the above is not executed
+     debug: var=out
+   - command: "ls /tmp"
+     register: tmp_out
+   - debug: var=tmp_out 
