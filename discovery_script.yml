@@ -1,0 +1,28 @@
+---
+ - name: discovery script
+   hosts: all
+   gather_facts: true
+   become: yes
+   tasks:
+   - name: finding uptime
+     shell: "uptime"
+     register: up_time
+   - name: displaying discovery info
+     debug:
+      msg: "{{inventory_hostname}},{{ansible_os_family}},{{ansible_system}},{{up_time.stdout}}"
+   - name: Removing old discovery file
+     file:
+      path: ./discovery.csv
+      state: absent
+     delegate_to: localhost
+     run_once: true
+   - name: creating discovery .csv file
+     copy:
+      dest: ./discovery.csv
+      content: "server_name,os_family,os_name,up_time\n"
+     delegate_to: localhost
+     run_once: true
+   - name: updating info of each server in csv file
+     lineinfile: 
+      path: ./discovery.csv
+      line: "{{inventory_hostname}},{{ansible_os_family}},{{ansible_system}},{{up_time.stdout}}"    

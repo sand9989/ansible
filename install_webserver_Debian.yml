@@ -1,0 +1,5 @@
+---
+ - name: uninstall webserver 
+   apt:
+    name: apache2
+    state: absent
