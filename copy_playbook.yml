@@ -5,3 +5,22 @@
    tasks:
     - name: copy the file
       copy: src=dest.xml dest=dest.xml
+      
+      copy command
+      enkins clones git repository to the job workspace in ${JENKINS_HOME}/jobs/<JOB_NAME>/workspace
+
+And as it says here you can modify this path:
+
+After adding a new git repository (project configuration > Source Code Management > check the GIT option) to the project navigate to the bottom of the plugin settings, just above Repository browser region. There should be an Advanced button. After clicking it a new form should appear, with a value described as Local subdirectory for repo (optional). Setting this to folder will make the plugin to check out the repository into the folder relative to your workspace. This way you can have as many repositories in your project as you need, all in separate locations.
+
+Share
+      
+      
+      copy command
+      copy commandenkins clones git repository to the job workspace in ${JENKINS_HOME}/jobs/<JOB_NAME>/workspace
+
+And as it says here you can modify this path:
+
+After adding a new git repository (project configuration > Source Code Management > check the GIT option) to the project navigate to the bottom of the plugin settings, just above Repository browser region. There should be an Advanced button. After clicking it a new form should appear, with a value described as Local subdirectory for repo (optional). Setting this to folder will make the plugin to check out the repository into the folder relative to your workspace. This way you can have as many repositories in your project as you need, all in separate locations.
+
+Share
