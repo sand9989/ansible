@@ -12,3 +12,13 @@
         - git
         - tomcat
         - httpd
+        
+        e have some jobs set up which share a workspace. The workflow for the various branches is:
+
+Build a big honking C++ project called foo.
+Execute several downstream tests, each of which uses the workspace of foo.
+We accomplish this by assigning the Use custom workspace field of the downstream jobs to the build workspace.
+
+Recently, we took one branch and assigned it to be build on a Jenkins slave machine rather than on the master. I was surprised to find that on master, the foo repository was cloned to $JENKINS_JOBS_PATH/FOO/workspace/foo_repo - while on the slave, the repository was cloned to $JENKINS_JOBS_PATH/FOO/foo_repo.
+
+Is this by design, or have we somehow con
